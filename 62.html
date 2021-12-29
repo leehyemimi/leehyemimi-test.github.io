@@ -40,15 +40,35 @@
                 <button type="button" class="btn-link btn-back">
                     <img src="./img/icon_back.png" alt="" style="margin-right: 10px;">
                 </button>
-                <span class="text_logo">000목회자4</span>
+                <span class="text_logo">000목회자</span>
             </a>
         </nav>
     </div>
 </header>
+<style>
+	.main {
+		position: relative;
+		width: 100%;
+		height: 200px;
+		overflow-y: auto;
+	}
+	
+	.chat {
+		width: 100%;
+		height: auto;
+	}
+	
+	.make-scrollable {
+		position: absolute;
+		left: 0;
+		width: 1px;
+		height: calc(100% + 1px); // height를 100%보다 1px높게 잡아 실제로 scroll이 되도록 만듭니다.
+	}
+</style>
 <div class="main">
         <section class="pb-5">
 			<div class="chat"><!----> <div class="right_chat"><div class="grid col-11 offset-1 pr-0"><div class="d-flex justify-content-end mb-3"><strong class="mr-3"> 22:24</strong> <!----></div> <div class="d-flex justify-content-end mb-3"><a href="/note-image/30/1188" target="_blank"><img src="https://aleum.kr/storage/messages/572c2339f8a795ac2ab8aa1b00629e04.jpg" alt="" class="img_chat"></a></div></div></div></div>
-
+			<div class="make-scrollable"></div>
         </section>
         <div class="modal fade" id="sort" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -100,7 +120,7 @@
         border: none;
     }
 </style>
-<!--<script>
+<script>
     function getScrollHeight(elm){
         var savedValue = elm.value
         elm.value = ''
@@ -143,5 +163,5 @@
     //         rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 16);
     //         this.rows = minRows + rows;
     //     });
-</script>-->
+</script>
 </html>

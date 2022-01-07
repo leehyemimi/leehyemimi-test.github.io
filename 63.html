@@ -45,7 +45,7 @@
                         <button type="button" class="btn-link btn-back">
                     <img src="./img/icon_back.png" alt="" style="margin-right: 10px;">
                 </button>
-                        <span class="text_logo">000목회자3</span>
+                        <span class="text_logo">000목회자4</span>
                     </a>
                 </nav>
             </div>
@@ -201,6 +201,18 @@
     }
 </style>
 <script>
+    $(function() {
+        $(".autoExpand").each(function() {
+            $(this).bind("focus", function() {
+                $("footer").css("position", "absolute");
+            });
+
+            $(this).bind("blur", function() {
+                $("footer").css("position", "fixed");
+            });
+        });
+    });
+
     /*let prevVisualViewport = 0
 
     	function handleVisualViewportResize() {

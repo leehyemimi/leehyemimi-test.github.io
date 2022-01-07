@@ -204,11 +204,13 @@
     $(function() {
         $(".autoExpand").each(function() {
             $(this).bind("focus", function() {
-                $("footer").css("position", "absolute");
+                $("footer").css("position", "relative");
+                $(".note-show1").css("height", "auto");
             });
 
             $(this).bind("blur", function() {
                 $("footer").css("position", "fixed");
+                $(".note-show1").css("height", "100%");
             });
         });
     });

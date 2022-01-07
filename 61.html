@@ -39,7 +39,7 @@
 <div id="app">
     <header>
         <div class="d-flex justify-content-between">
-            <nav class="navbar navbar-expand-lg"><a href="javascript:;" class="navbar-brand"><button type="button" class="btn-link btn-back"><img src="/assets/img/app/icon_back.png" alt=""></button></a> <span class="text_logo">앱닥터테스트1</span></nav>
+            <nav class="navbar navbar-expand-lg"><a href="javascript:;" class="navbar-brand"><button type="button" class="btn-link btn-back"><img src="/assets/img/app/icon_back.png" alt=""></button></a> <span class="text_logo">앱닥터테스트2</span></nav>
             <div class="navright d-flex align-center"></div>
         </div>
     </header>
@@ -91,6 +91,21 @@
     }
 </style>
 <script>
+    $(function() {
+        $(".autoExpand").each(function() {
+            $(this).bind("focus", function() {
+                $(window).resizeTo(100, 100)
+                    // $("footer").css("position", "relative");
+                $("body").css("height", "auto");
+            });
+
+            $(this).bind("blur", function() {
+                // $("footer").css("position", "fixed");
+                // $(".note-show1").css("height", "100%");
+            });
+        });
+    });
+
     function getScrollHeight(elm) {
         var savedValue = elm.value
         elm.value = ''

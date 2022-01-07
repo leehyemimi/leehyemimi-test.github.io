@@ -204,17 +204,19 @@
     $(function() {
         $(".autoExpand").each(function() {
             $(this).bind("focus", function() {
-                $(window).on('resize', function() {
-                    //console.log('resize event!');
-                });
+                $("footer").css("position", "relative");
+                $(".note-show1").css("height", "auto");
             });
 
-            // $(this).bind("blur", function() {
-            //     $("footer").css("position", "fixed");
-            //     $(".note-show1").css("height", "100%");
-            // });
+            $(this).bind("blur", function() {
+                $("footer").css("position", "fixed");
+                $(".note-show1").css("height", "100%");
+            });
         });
     });
+    /* $(window).on('resize', function(){
+         console.log('resize event!');
+     });*/
 
     /*let prevVisualViewport = 0
 

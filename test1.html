@@ -115,17 +115,46 @@
 </style>
 <script>
     // 2021.01.08 추가
-    $(function() {
-        $(".autoExpand").each(function() {
-            $(this).bind("focus", function() {
-                $("footer").css("position", "static");
-            });
+    // $(function() {
+    //     $(".autoExpand").each(function() {
+    //         $(this).bind("focus", function() {
+    //             $("footer").css("position", "static");
+    //         });
 
-            $(this).bind("blur", function() {
-                $("footer").css("position", "fixed");
-            });
-        });
-    });
+    //         $(this).bind("blur", function() {
+    //             $("footer").css("position", "fixed");
+    //         });
+    //     });
+    // });
+    if ("VisualViewport" in window) {
+        const debouncedHandleResize = debounce(handleResize, 100);
+        visualViewport.addEventListener("resize", debouncedHandleResize);
+
+        function handleResize(event) {
+            const {
+                height: visualViewportHeight
+            } = event.target;
+            const eventName = Math.ceil(visualViewportHeight) < window.innerHeight ? "keyboardopen" : "keyboardclose";
+            emitEvent.call(event, eventName);
+        }
+
+        function emitEvent(name) {
+            window.dispatchEvent(new CustomEvent(name, {
+                detail: {
+                    originalEvent: this,
+                },
+            }));
+        }
+
+        function debounce(fn, wait) {
+            let cancelId = null;
+            return function debounced(...args) {
+                clearTimeout(cancelId);
+                cancelId = setTimeout(fn.bind(this, ...args), wait);
+            }
+        }
+    }
+
 
 
     function getScrollHeight(elm) {

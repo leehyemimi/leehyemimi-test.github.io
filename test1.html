@@ -39,7 +39,7 @@
                     <button type="button" class="btn-link btn-back">
                     <img src="./img/icon_back.png" alt="" style="margin-right: 10px;">
                 </button>
-                    <span class="text_logo">000목회자1</span>
+                    <span class="text_logo">000목회자2</span>
                 </a>
             </nav>
         </div>
@@ -127,14 +127,14 @@
     //     });
     // });
     if ("VisualViewport" in window) {
-        const debouncedHandleResize = debounce(handleResize, 100);
+        var debouncedHandleResize = debounce(handleResize, 100);
         visualViewport.addEventListener("resize", debouncedHandleResize);
 
         function handleResize(event) {
-            const {
+            var {
                 height: visualViewportHeight
             } = event.target;
-            const eventName = Math.ceil(visualViewportHeight) < window.innerHeight ? "keyboardopen" : "keyboardclose";
+            var eventName = Math.ceil(visualViewportHeight) < window.innerHeight ? "keyboardopen" : "keyboardclose";
             emitEvent.call(event, eventName);
         }
 
@@ -147,7 +147,7 @@
         }
 
         function debounce(fn, wait) {
-            let cancelId = null;
+            var cancelId = null;
             return function debounced(...args) {
                 clearTimeout(cancelId);
                 cancelId = setTimeout(fn.bind(this, ...args), wait);

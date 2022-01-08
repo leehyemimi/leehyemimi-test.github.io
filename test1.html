@@ -30,6 +30,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
+
 <body style="background-color: #fff !important;">
     <header style="border-bottom: solid 1px #e4e4e4">
         <div class="d-flex justify-content-between">
@@ -117,14 +118,11 @@
     $(function() {
         $(".autoExpand").each(function() {
             $(this).bind("focus", function() {
-                $("body").css("height", "100");
-                $("body").css("overflow", "hidden");
-                //$(".note-show1").css("height", "auto");
+                $("footer").css("position", "static");
             });
 
             $(this).bind("blur", function() {
-                // $("footer").css("position", "fixed");
-                // $(".note-show1").css("height", "100%");
+                $("footer").css("position", "fixed");
             });
         });
     });

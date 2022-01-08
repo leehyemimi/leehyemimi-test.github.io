@@ -38,7 +38,7 @@
                     <button type="button" class="btn-link btn-back">
                     <img src="./img/icon_back.png" alt="" style="margin-right: 10px;">
                 </button>
-                    <span class="text_logo">000목회자</span>
+                    <span class="text_logo">000목회자1</span>
                 </a>
             </nav>
         </div>
@@ -113,6 +113,23 @@
     }
 </style>
 <script>
+    // 2021.01.08 추가
+    $(function() {
+        $(".autoExpand").each(function() {
+            $(this).bind("focus", function() {
+                $("body").css("height", "100");
+                $("body").css("overflow", "hidden");
+                //$(".note-show1").css("height", "auto");
+            });
+
+            $(this).bind("blur", function() {
+                // $("footer").css("position", "fixed");
+                // $(".note-show1").css("height", "100%");
+            });
+        });
+    });
+
+
     function getScrollHeight(elm) {
         var savedValue = elm.value
         elm.value = ''
